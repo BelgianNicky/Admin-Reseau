@@ -1,0 +1,15 @@
+$TTL 3600
+$ORIGIN 178.51.in-addr.arpa.
+@          IN         SOA   ns.wt1-11.ephec-ti.be. admin.wt1-11.ephec-ti.be. (
+                                       2      ; Serial
+                                       3600   ; Refresh
+                                       6      ; Retry
+                                       604800 ; Expire
+                                       3600   ; Minimum TTL
+)
+
+@                    IN         NS                    ns.wt1-11.ephec-ti.be.
+57.41                IN         PTR                   ns.wt1-11.ephec-ti.be.
+
+57.41                IN         PTR                   mail.wt1-11.ephec-ti.be.
+57.41                IN         PTR                   www.wt1-11.ephec-ti.be.
