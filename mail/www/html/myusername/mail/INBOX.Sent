@@ -1,0 +1,70 @@
+From myusername@wt1-11.ephec-ti.be  Fri Apr 17 10:24:47 2020
+Received: from 109.129.35.220
+        (SquirrelMail authenticated user myusername)
+        by wt1-11.ephec-ti.be with HTTP;
+        Fri, 17 Apr 2020 10:24:47 +0200
+Message-ID: <41f782662af8620ef9b443f8e5129555.squirrel@wt1-11.ephec-ti.be>
+Date: Fri, 17 Apr 2020 10:24:47 +0200
+Subject: Test
+From: myusername@wt1-11.ephec-ti.be
+To: riatnicky@hotmail.fr
+User-Agent: SquirrelMail/1.4.22
+MIME-Version: 1.0
+Content-Type: text/plain;charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+X-Priority: 3 (Normal)
+Importance: Normal
+X-IMAPbase: 1587111872 0000000003
+X-UID: 1
+Status: RO
+X-Keywords:                                                                        
+Content-Length: 5
+
+Test
+
+From myusername@wt1-11.ephec-ti.be  Fri Apr 17 10:56:29 2020
+Received: from 109.129.35.220
+        (SquirrelMail authenticated user myusername)
+        by wt1-11.ephec-ti.be with HTTP;
+        Fri, 17 Apr 2020 10:56:29 +0200
+Message-ID: <e76f4608c0b35a573089936abca96b0b.squirrel@wt1-11.ephec-ti.be>
+Date: Fri, 17 Apr 2020 10:56:29 +0200
+Subject: test2
+From: myusername@wt1-11.ephec-ti.be
+To: myusername1@wt1-11.ephec-ti.be
+User-Agent: SquirrelMail/1.4.22
+MIME-Version: 1.0
+Content-Type: text/plain;charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+X-Priority: 3 (Normal)
+Importance: Normal
+X-UID: 2
+Status: RO
+X-Keywords:                                                                        
+Content-Length: 6
+
+test2
+
+From myusername@wt1-11.ephec-ti.be  Mon Apr 20 10:05:47 2020
+Received: from 109.129.35.220
+        (SquirrelMail authenticated user myusername)
+        by www.wt1-11.ephec-ti.be with HTTP;
+        Mon, 20 Apr 2020 10:05:47 +0200
+Message-ID: <4077a61b1d1c0a12a11e161d7cf28d2d.squirrel@www.wt1-11.ephec-ti.be>
+Date: Mon, 20 Apr 2020 10:05:47 +0200
+Subject: Ping
+From: myusername@wt1-11.ephec-ti.be
+To: ping@tools.mxtoolbox.com
+User-Agent: SquirrelMail/1.4.22
+MIME-Version: 1.0
+Content-Type: text/plain;charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+X-Priority: 3 (Normal)
+Importance: Normal
+X-UID: 3
+Status: RO
+X-Keywords:                                                                        
+Content-Length: 1
+
+
+
