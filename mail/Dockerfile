@@ -1,42 +1,51 @@
 #Choix de l'OS
 FROM ubuntu:latest
 
-
 #MAJ
-RUN sudo apt-get update -y
-RUN sudo apt-get upgrade -y
+RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install wget -y
+#Config system hostname & hosts
+COPY hostname /etc/hostname
+COPY hosts /etc/hosts
+
+#Installation de mailutils
+RUN apt-get install mailutils -y
 
 #Installation de apache php
-RUN sudo apt-get install apache2 php7 
+RUN apt-get install apache2 -y 
+RUN apt-get install php -y
 
 #Installation de postfix
-RUN sudo apt-get install postfix -y
+RUN apt-get install postfix -y
 
 #Installaion de dovecot
-RUN sudo apt-get install dovecot-imapd dovecot-pop3d -y
+RUN DEBIAN_FRONTEND=noninteractive apt-get install dovecot-imapd dovecot-pop3d -y
 
 #Installation de SquirrelMail
-RUN sudo wget https://sourceforge.net/projects/squirrelmail/files/stable/1.4.22/squirrelmail-webmail-1.4.22.zip
-RUN sudo unzip squirrelmail-webmail-1.4.22.zip
-RUN sudo mv squirrelmail-webmail-1.4.22 /var/www/html/
-RUN sudo chown -R www-data:www-data /var/www/html/squirrelmail-webmail-1.4.22/
-RUN sudo chmod 755 -R /var/www/html/squirrelmail-webmail-1.4.22/
-RUN sudo mv /var/www/html/squirrelmail-webmail-1.4.22/ /var/www/html/squirrelmail
+RUN wget https://sourceforge.net/projects/squirrelmail/files/stable/1.4.22/squirrelmail-webmail-1.4.22.zip
+RUN unzip squirrelmail-webmail-1.4.22.zip
+RUN mv squirrelmail-webmail-1.4.22 /var/www/html/
+RUN chown -R www-data:www-data /var/www/html/squirrelmail-webmail-1.4.22/
+RUN chmod 755 -R /var/www/html/squirrelmail-webmail-1.4.22/
+RUN mv /var/www/html/squirrelmail-webmail-1.4.22/ /var/www/html/squirrelmail
 
 #Config files
-COPY www /var/
-COPY main.cf /etc/postfix/
+COPY main.cf /etc/postfix/main.cf
+COPY config.php /var/www/html/squirrelmail/config/config.php
 
-RUN mkdir -p /dir1 && \
-	mkdir -p /dir2 &&\
+#Reload
+RUN servcie postfix restart
+RUN service dovecot restart
+RUN service apache2 restart
 
-WORKDIR /workdir
-VOLUME /volume
+#Create your users
+RUN useradd test123 && passwd test123
+RUN mdkir -p /var/html/www/test123
+RUN usermod -m -d /var/www/html/test123 test123
+RUN chown -R test123:test123 /var/www/html/test123
 
+#Open ports
+EXPOSE 25 110 143 465 587 993 995 4190 11334
 
-COPY example.conf /dir/
-COPY example.conf /dir/
-
-EXPOSE XX/tcp XX/udp
-
-CMD ["/dir", "-c", "/file", "-fg"]
+#Mount
+VOLUME ["/var/spool/postfix", "/var/spool/mail"]
