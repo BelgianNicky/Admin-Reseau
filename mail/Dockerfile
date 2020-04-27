@@ -3,7 +3,8 @@ FROM ubuntu:latest
 
 #MAJ
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install wget -y
+RUN apt-get install wget zip unzip -y
+
 #Config system hostname & hosts
 COPY hostname /etc/hostname
 COPY hosts /etc/hosts
@@ -34,13 +35,14 @@ COPY main.cf /etc/postfix/main.cf
 COPY config.php /var/www/html/squirrelmail/config/config.php
 
 #Reload
-RUN servcie postfix restart
+RUN service postfix restart
 RUN service dovecot restart
 RUN service apache2 restart
 
 #Create your users
-RUN useradd test123 && passwd test123
-RUN mdkir -p /var/html/www/test123
+RUN useradd test123
+RUN passwd test123
+RUN mkdir -p /var/html/www/test123
 RUN usermod -m -d /var/www/html/test123 test123
 RUN chown -R test123:test123 /var/www/html/test123
 
