@@ -54,10 +54,10 @@ COPY init.sh /init.sh
 #RUN chown -R test123:test123 /var/www/html/test123
 
 #Open ports
-EXPOSE 25 80 110 143 443 465 587 993 995 4190 11334
+EXPOSE 25 80 587 2525 465 25025 
 
 #Mount
 VOLUME ["/var/spool/postfix", "/var/spool/mail", "/var/www/html"]
 
 #Cmd qui lance les services
-CMD ["bash", "/init.sh"]
+CMD ["/init.sh"]
