@@ -3,7 +3,8 @@ FROM ubuntu:latest
 
 #MAJ
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install wget zip unzip -y
+RUN apt-get install wget zip unzip nano -y
+#RUN hostname wt1-11.ephec-ti.be
 
 #Config system hostname & hosts
 COPY hostname /etc/hostname
@@ -30,24 +31,33 @@ RUN chown -R www-data:www-data /var/www/html/squirrelmail-webmail-1.4.22/
 RUN chmod 755 -R /var/www/html/squirrelmail-webmail-1.4.22/
 RUN mv /var/www/html/squirrelmail-webmail-1.4.22/ /var/www/html/squirrelmail
 
+#Ajoute directory et permissions de www-data
+RUN mkdir /var/local/squirrelmail
+RUN mkdir /var/local/squirrelmail/data
+RUN chown -R www-data:www-data /var/local/squirrelmail/
+
 #Config files
 COPY main.cf /etc/postfix/main.cf
 COPY config.php /var/www/html/squirrelmail/config/config.php
-
+COPY mailname /etc/mailname
+COPY init.sh /init.sh
 #Reload
-RUN service postfix restart
-RUN service dovecot restart
-RUN service apache2 restart
+#RUN service postfix restart
+#RUN service dovecot restart
+#RUN service apache2 restart
 
 #Create your users
-RUN useradd test123
-RUN passwd test123
-RUN mkdir -p /var/html/www/test123
-RUN usermod -m -d /var/www/html/test123 test123
-RUN chown -R test123:test123 /var/www/html/test123
+#RUN useradd test123
+#RUN passwd test123
+#RUN mkdir -p /var/html/www/test123
+#RUN usermod -m -d /var/www/html/test123 test123
+#RUN chown -R test123:test123 /var/www/html/test123
 
 #Open ports
-EXPOSE 25 110 143 465 587 993 995 4190 11334
+EXPOSE 25 80 110 143 443 465 587 993 995 4190 11334
 
 #Mount
-VOLUME ["/var/spool/postfix", "/var/spool/mail"]
+VOLUME ["/var/spool/postfix", "/var/spool/mail", "/var/www/html"]
+
+#Cmd qui lance les services
+CMD ["bash", "/init.sh"]
