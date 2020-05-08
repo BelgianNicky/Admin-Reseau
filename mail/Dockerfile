@@ -59,5 +59,5 @@ EXPOSE 25 80 587 2525 465 25025
 #Mount
 VOLUME ["/var/spool/postfix", "/var/spool/mail", "/var/www/html"]
 
-#Cmd qui lance les services
-CMD ["/init.sh"]
+#EntryPoint qui lance les services
+ENTRYPOINT ["/init.sh"]
