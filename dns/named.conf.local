@@ -6,12 +6,22 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-    zone "wt1-11.ephec-ti.be" {
-        type master;
-        file "/etc/bind/zones/db.wt1-11.ephec-ti.be";
-    };
+	zone "wt1-11.ephec-ti.be" {
+		type master;
+		file "/etc/bind/zones/db.wt1-11.ephec-ti.be";
+	};
 
-    zone   "178.51.in-addr.arpa"        {
-        type master;
-        file    "/etc/bind//zones/178.51.in-addr.arpa";
-    };
+	zone   "178.51.in-addr.arpa"        {
+		type master;
+		file    "/etc/bind//zones/178.51.in-addr.arpa";
+	};
+
+	zone "internal" {
+		type master;
+		file "/etc/bind/zones/db.internal";
+	};
+
+	zone "18.172.in-addr.arpa" {
+		type master;
+		file "/etc/bind/zones/18.172.in-addr.arpa";
+	};

@@ -1,0 +1,14 @@
+$TTL 3600
+$ORIGIN 18.172.in-addr.arpa.
+@          IN         SOA   ns.internal. admin.internal. (
+                                       2      ; Serial
+                                       3600   ; Refresh
+                                       6      ; Retry
+                                       604800 ; Expire
+                                       3600   ; Minimum TTL
+)
+;Name Server
+@                    IN         NS                    ns.internal.
+
+;PTR
+1                IN         PTR                   ns.internal.

@@ -8,8 +8,12 @@ $ORIGIN 178.51.in-addr.arpa.
                                        3600   ; Minimum TTL
 )
 
+;Name Server
 @                    IN         NS                    ns.wt1-11.ephec-ti.be.
+
+;PTR
 57.41                IN         PTR                   ns.wt1-11.ephec-ti.be.
 
 57.41                IN         PTR                   mail.wt1-11.ephec-ti.be.
 57.41                IN         PTR                   www.wt1-11.ephec-ti.be.
+57.41                IN         PTR                   b2b.wt1-11.ephec-ti.be.

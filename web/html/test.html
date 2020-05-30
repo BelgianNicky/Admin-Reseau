@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
+
+
+    <title>
+      Test your webpage and compare it to others in the same field as yours !
+    </title>
+  </head>
+  <body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js" integrity="sha256-8zyeSXm+yTvzUN1VgAOinFgaVFEFTyYzWShOy9w7WoQ=" crossorigin="anonymous"></script>
+
+<canvas id="myChart" width="600" height="400"></canvas>
+<script>
+var ctx = document.getElementById('myChart');
+
+function test(){
+
+var marksData = {
+  labels: ["VC", "Loaded", "Size", "TTFB", "First Paint", "Requests", "SpeedIndex"],
+  datasets: [{
+    label: "Your Results",
+    backgroundColor: "rgba(200,0,0,0.2)",
+    data: [5700, 6496, 8570, 2260, 4404, 5900, 4401]
+  }, {
+    label: "Avg",
+    backgroundColor: "rgba(0,0,200,0.2)",
+    data: [5040, 11101, 1789, 5470, 3649, 1130, 4572]
+  }]
+};
+ 
+var radarChart = new Chart(ctx, {
+  type: 'radar',
+  data: marksData
+});
+
+}
+
+test();
+</script>
+
+</body>

@@ -1,6 +1,6 @@
 $TTL 3600
 $ORIGIN wt1-11.ephec-ti.be.
-@               IN      SOA     ns.wt1-8.ephec-ti.be. admin.wt1-8.ephec-ti.be. (
+@               IN      SOA     ns.wt1-11.ephec-ti.be. admin.wt1-11.ephec-ti.be. (
                 1       ; serial
                 3600    ; refresh
                 6       ; retry
@@ -16,8 +16,10 @@ wt1-11.ephec-ti.be.     IN      NS      ns.wt1-11.ephec-ti.be.
 
 ;A records
 ns                      IN      A               51.178.41.57
+wt1-11.ephec-ti.be.     IN      A               51.178.41.57
 www                     IN      A               51.178.41.57
-@                       IN      A               51.178.41.57
+b2b			IN	A		51.178.41.57
+;www.b2b			IN	A		51.178.41.57
 mail			IN	A		51.178.41.57
 
 ;CNAME records
