@@ -1,7 +1,15 @@
+#Choix de l'OS
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y bind9 nanoFROM ubuntu:latest
+#MAJ
+RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install wget zip unzip nano bind9 -y
 
-RUN apt-get update && apt-get install -y bind9 nano
+COPY named.conf /etc/bind/
+COPY named.conf.local /etc/bind/
+COPY named.conf.options /etc/bind/
 
-COPY
+COPY zones /etc/bind/
+
+EXPOSE 53 53/udp
+
